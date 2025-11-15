@@ -1,0 +1,24 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class Q4 extends Application {
+    public void start(Stage s) {
+        MenuBar mb=new MenuBar();
+        Menu f=new Menu("File");
+        MenuItem n=new MenuItem("New");
+        MenuItem o=new MenuItem("Open");
+        MenuItem sv=new MenuItem("Save");
+        MenuItem ex=new MenuItem("Exit");
+        ex.setOnAction(e->s.close());
+        f.getItems().addAll(n,o,sv,ex);
+        mb.getMenus().addAll(f,new Menu("Edit"),new Menu("Help"));
+        BorderPane bp=new BorderPane();
+        bp.setTop(mb);
+        s.setScene(new Scene(bp,400,200));
+        s.show();
+    }
+    public static void main(String[] a){launch(a);}
+}
