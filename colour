@@ -1,0 +1,18 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class Q2 extends Application {
+    public void start(Stage s) {
+        ChoiceBox<String> c=new ChoiceBox<>();
+        c.getItems().addAll("Red","Green","Blue");
+        Label l=new Label("Select a color");
+        c.getSelectionModel().selectedItemProperty().addListener((o,ov,nv)->l.setText(nv+" selected"));
+        VBox v=new VBox(10,c,l);
+        s.setScene(new Scene(v,250,150));
+        s.show();
+    }
+    public static void main(String[] a){launch(a);}
+}
