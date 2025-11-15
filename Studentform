@@ -1,0 +1,25 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class Q3 extends Application {
+    public void start(Stage s) {
+        TextField t=new TextField(); t.setPromptText("Name");
+        RadioButton r1=new RadioButton("Male");
+        RadioButton r2=new RadioButton("Female");
+        ToggleGroup g=new ToggleGroup(); r1.setToggleGroup(g); r2.setToggleGroup(g);
+        ComboBox<String> d=new ComboBox<>(); d.getItems().addAll("CSE","IT","ECE");
+        Button b=new Button("Submit");
+        TextArea ta=new TextArea();
+        b.setOnAction(e->{
+            String gen=((RadioButton)g.getSelectedToggle()).getText();
+            ta.setText("Name: "+t.getText()+"\nGender: "+gen+"\nDept: "+d.getValue());
+        });
+        VBox v=new VBox(10,t,r1,r2,d,b,ta);
+        s.setScene(new Scene(v,300,300));
+        s.show();
+    }
+    public static void main(String[] a){launch(a);}
+}
